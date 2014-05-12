@@ -1,0 +1,4 @@
+# Additions to bash should be placed into ~/dotfiles with a .sh extension
+for file in ~/dotfiles/*.sh; do
+  [[ -r $file ]] && source $file;
+done

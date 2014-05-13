@@ -2,3 +2,7 @@
 for file in ~/dotfiles/*.sh; do
   [[ -r $file ]] && source $file;
 done
+
+if [[ ! -e ~/.inputrc ]]; then
+	cp ~/dotfiles/.inputrc ~/
+fi

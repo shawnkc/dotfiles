@@ -1,6 +1,6 @@
 #Sublime Text Setup
 
-##Javascript
+###Javascript
 
 - Code completion:
 	- http://ternjs.net/ (forked to shawnkc/tern_for_sublime so it's not lost)
@@ -21,26 +21,26 @@
 		- You should be all set now.
 		
 # iTerm2
-## Misc tips:
+### Misc tips:
 
 - http://teohm.com/blog/2012/03/22/working-effectively-with-iterm2/
 - http://thunderboltlabs.com/blog/2013/11/19/efficiency-with-sublime-text-and-ruby/
 
-## Favorite Settings
+### Favorite Settings
 
-### Control Key on Right Side of Keyboard
+#### Control Key on Right Side of Keyboard
 
 Under **Keys** (not **Profile->Keys**), remap the `Right ⌥` to `^`, I hardly ever use the right option but it's so hard to get me to hit `^a` normally.
 
-### Open Tab/Pane in Current Working Directory
+#### Open Tab/Pane in Current Working Directory
 
 Under **Profile->General**, select "Reuse previous session's directory"
 
-### Switch pane with mouse cursor
+#### Switch pane with mouse cursor
 
 Under **Pointer**, in Miscellaneous Settings section, enable “Focus follows mouse”.
 
-### Misc Window Settings
+#### Misc Window Settings
 
 Under **General->Window**, disable "Adjust window when changing font size"
 
@@ -50,7 +50,7 @@ Under **Appearance->Tabs**, disable "Hide tab number and tab close button"
 
 Under **Pointer->Miscellaneous Settings**, enable "Focus follows mouse"
 
-## Shortcuts I commonly use
+### Shortcuts I commonly use
 
 Category | Shortcut | Description
 :------- | :------- | :----------

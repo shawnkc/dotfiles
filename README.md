@@ -54,20 +54,20 @@ Under **Pointer->Miscellaneous Settings**, enable "Focus follows mouse"
 
 Category | Shortcut | Description
 :------- | :------- | :----------
-Tabs |
-|⌘ t  	| Create new tab
-|⌘ ⇧ ]	| Next tab
-|⌘ ⇧ [	| Previous tab
-Panes |
-|⌘ d  	| Split horizontal
-|⌘ ⇧ d  | Split vertical
-|⌘ ]	| Next pane
-|⌘ [	| Previous pane
-Misc |
-|⌘ +	| Larger font
-|⌘ -	| Smaller font
-|⌘ k	| Clears screen (works in almost all OSX apps)
-|⌘ ⌥ =	| Toggle maximize window
+Tabs ||
+ |⌘ t  	| Create new tab
+ |⌘ ⇧ ]	| Next tab
+ |⌘ ⇧ [	| Previous tab
+Panes ||
+ |⌘ d  	| Split horizontal
+ |⌘ ⇧ d  | Split vertical
+ |⌘ ]	| Next pane
+ |⌘ [	| Previous pane
+Misc ||
+ |⌘ +	| Larger font
+ |⌘ -	| Smaller font
+ |⌘ k	| Clears screen (works in almost all OSX apps)
+ |⌘ ⌥ =	| Toggle maximize window
 
 
 

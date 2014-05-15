@@ -30,25 +30,22 @@
 
 #### Control Key on Right Side of Keyboard
 
-Under **Keys** (not **Profile->Keys**), remap the `Right ⌥` to `^`, I hardly ever use the right option but it's so hard to get me to hit `^a` normally.
+- Under **Keys** (not **Profile->Keys**), remap the `Right ⌥` to `^`, I hardly ever use the right option but it's so hard to get me to hit `^a` normally.
 
 #### Open Tab/Pane in Current Working Directory
 
-Under **Profile->General**, select "Reuse previous session's directory"
+- Under **Profile->General**, select "Reuse previous session's directory"
 
 #### Switch pane with mouse cursor
 
-Under **Pointer**, in Miscellaneous Settings section, enable “Focus follows mouse”.
+- Under **Pointer**, in Miscellaneous Settings section, enable “Focus follows mouse”.
 
 #### Misc Window Settings
 
-Under **General->Window**, disable "Adjust window when changing font size"
-
-Under **Appearance->Dimming**, enable "Dim background windows" and "Animate Dimming"
-
-Under **Appearance->Tabs**, disable "Hide tab number and tab close button"
-
-Under **Pointer->Miscellaneous Settings**, enable "Focus follows mouse"
+- Under **General->Window**, disable "Adjust window when changing font size"
+- Under **Appearance->Dimming**, enable "Dim background windows" and "Animate Dimming"
+- Under **Appearance->Tabs**, disable "Hide tab number and tab close button"
+- Under **Pointer->Miscellaneous Settings**, enable "Focus follows mouse"
 
 ### Shortcuts I commonly use
 

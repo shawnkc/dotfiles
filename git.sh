@@ -7,3 +7,5 @@ alias git_submodule_update="git submodule foreach -q --recursive 'branch="$(git 
 alias git_submodule_status="git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; echo; pwd; git status;'"
 alias git_status="git status;git_submodule_status"
 alias git_commit_sub="git commit -am 'sub';git push"
+
+alias co="git checkout"

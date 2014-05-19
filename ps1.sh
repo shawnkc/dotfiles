@@ -31,7 +31,10 @@ parse_git_branch() {
 export -f parse_git_branch
 
 # long dir, two lines
-export PS1="\[\033[36m\]\w\n\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\[\$prevCmd\]$\[\033[00m\] "
+#export PS1="\[\033[36m\]\w\n\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\[\$prevCmd\]$\[\033[00m\] "
+
+# long dir, one lines
+export PS1="\[\033[36m\]\w \[\033[33m\]\$(parse_git_branch)\[\033[00m\]\[\$prevCmd\]$\[\033[00m\] "
 
 # short dir, one line
 # export PS1="\[\033[36m\]\W \[\033[33m\]\$(parse_git_branch)\[\033[00m\]\[\$prevCmd\]$\[\033[00m\] "

@@ -7,8 +7,8 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
 alias s=subl
-alias l='ls -l'
-alias la='ls -la'
-alias lart='ls -lart'
+alias l='ls -lFo'
+alias la='ls -lAFo'
+alias lart='ls -lArtFo'
 
 alias path='echo -e ${PATH//:/\\n}'

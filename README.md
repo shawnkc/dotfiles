@@ -1,5 +1,9 @@
 #Sublime Text Setup
 
+###Themes
+
+- Atom was nice visually, but far too slow with the paint/input response.  Here is a good theme to get you almost there visually:  https://github.com/shawnkc/sublimetext-defaultplus-theme
+
 ###Javascript
 
 - Code completion:

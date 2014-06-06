@@ -30,6 +30,12 @@
 - http://teohm.com/blog/2012/03/22/working-effectively-with-iterm2/
 - http://thunderboltlabs.com/blog/2013/11/19/efficiency-with-sublime-text-and-ruby/
 
+- Hide 'Last login':
+  
+  - Tired of this: 'Last login: Thu Nov 25 09:07:55 on ttys004', simply do this:
+
+      ````$ touch ~/.hushlogin````
+
 ### Favorite Settings
 
 #### Control Key on Right Side of Keyboard

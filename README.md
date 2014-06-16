@@ -1,3 +1,15 @@
+#Using dotfiles
+
+This contains my favorite aliases and command prompt settings to show your git repository branch for any directory you're in.
+
+##To install:
+
+- Download this repository into your user's root folder
+  
+  git clone git@github.com:shawnkc/dotfiles
+
+- Create/edit your ~/.bash_profile file and just copy/paste the contents of the `BASH_PROFILE_EXAMPLE` file.
+
 #Sublime Text Setup
 
 ###Themes

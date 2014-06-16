@@ -6,7 +6,7 @@ This contains my favorite aliases and command prompt settings to show your git r
 
 - Download this repository into your user's root folder
   
-  git clone git@github.com:shawnkc/dotfiles
+	    git clone git@github.com:shawnkc/dotfiles
 
 - Create/edit your ~/.bash_profile file and just copy/paste the contents of the `BASH_PROFILE_EXAMPLE` file.
 

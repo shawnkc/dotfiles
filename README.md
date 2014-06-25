@@ -4,23 +4,31 @@
 
 - Atom was nice visually, but far too slow with the paint/input response.  Here is a good theme to get you almost there visually:  https://github.com/shawnkc/sublimetext-defaultplus-theme
 
+###Misc Packages
+
+- Package Manager
+	- [https://sublime.wbond.net/installation][https://sublime.wbond.net/installation]
+	- The simplest method of installation is through the Sublime Text console. The console is accessed via the ctrl+` shortcut or the View > Show Console menu. Once open, paste the appropriate Python code for your version of Sublime Text into the console:
+	  
+	      import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+
+- HTML/CCS/JS prettify:
+	- [https://sublime.wbond.net/packages/HTML-CSS-JS%20Prettify](https://sublime.wbond.net/packages/HTML-CSS-JS%20Prettify)
+
 ###Javascript
 
 - Code completion:
-	- http://ternjs.net/ (forked to shawnkc/tern_for_sublime so it's not lost)
+	- [http://ternjs.net](http://ternjs.net) (forked to shawnkc/tern_for_sublime so it's not lost)
 	- Installation (copied from tern depo):
 		- Check out the code in this repository into a subdirectory of your Sublime Text's `Packages` directory.
 		
-			    cd /path/to/sublime-text-N/Packages
-			    git clone git://github.com/marijnh/tern_for_sublime.git
+			  cd /path/to/sublime-text-N/Packages
+			  git clone git://github.com/marijnh/tern_for_sublime.git
 		
-		- Next, make sure [node.js][node] and [npm][npm] are installed (Tern is a JavaScript program), and install the depedencies of the package.
+		- Next, make sure [node.js](http://nodejs.org) and [npm](https://npmjs.org/) are installed (Tern is a JavaScript program), and install the depedencies of the package.
 		
-[node]: http://nodejs.org
-[npm]: https://npmjs.org/
-		
-			    cd tern_for_sublime
-			    npm install
+			  cd tern_for_sublime
+			  npm install
 		
 		- You should be all set now.
 		

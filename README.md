@@ -58,6 +58,12 @@ This contains my favorite aliases and command prompt settings to show your git r
 
 ### Favorite Settings
 
+#### Move forward/back by a word, delete next work
+
+Map `^ left/right/D` to `Esc + B/F/D`.
+
+![keyboard_pref1](./_readme_images/iterm_keyboard_mapping.png =700x)
+
 #### Control Key on Right Side of Keyboard
 
 - Under **Keys** (not **Profile->Keys**), remap the `Right ⌥` to `^`, I hardly ever use the right option but it's so hard to get me to hit `^a` normally.

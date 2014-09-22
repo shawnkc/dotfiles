@@ -10,3 +10,4 @@ alias gs="git_status"
 alias git_commit_sub="git commit -am 'sub';git push"
 
 alias co="git checkout"
+alias gs="git status"

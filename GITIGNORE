@@ -82,12 +82,16 @@ Temp/*
 *.user
 *.pidb
 *.userprefs
+*.meta
 
 Library/cache/*
 Library/metadata/*
 Library/previews/*
 Library/ScriptAssemblies/*
+Library/ShaderCache/*
+Library/*.log
 
+ShaderCache.db
 AnnotationManager
 assetDatabase3
 AssetImportState

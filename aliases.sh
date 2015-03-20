@@ -16,3 +16,8 @@ alias lart='ls -lArtFo'
 alias path='echo -e ${PATH//:/\\n}'
 
 alias diffgui=opendiff
+
+# use ios7 sdk from xcode 5 dir in xcode 6
+XCODE6_PACKAGE=/Applications/Xcode.app
+XCODE5_PACKAGE=/Applications/Xcode5.1.1.app
+alias link_ios7='sudo ln -s "${XCODE5_PACKAGE}/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk" "${XCODE6_PACKAGE}/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk"'

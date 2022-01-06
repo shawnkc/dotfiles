@@ -14,3 +14,8 @@ export PATH="$PATH:/Users/Shawn/Development/android-ndk-r10d"
 alias jnidebug="adb shell setprop debug.checkjni 1"
 
 alias and-screencap="echo 'Capturing screenshot...' && adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' >"
+
+export ANDROID_HOME=/Users/shawn/Library/Android/sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/tools/bin:$PATH

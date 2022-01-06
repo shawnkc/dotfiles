@@ -17,7 +17,9 @@ alias path='echo -e ${PATH//:/\\n}'
 
 alias diffgui=opendiff
 
-# use ios7 sdk from xcode 5 dir in xcode 6
-XCODE6_PACKAGE=/Applications/Xcode.app
-XCODE5_PACKAGE=/Applications/Xcode5.1.1.app
-alias link_ios7='sudo ln -s "${XCODE5_PACKAGE}/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk" "${XCODE6_PACKAGE}/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk"'
+alias csp='cloud_sql_proxy -instances=vinli-dev-eu:europe-west1:dev-postgres-01=tcp:5432'
+
+alias deploy='fastlane build_and_deploy_ios'
+
+alias dbb='"/Applications/DB Browser for SQLite.app/Contents/MacOS/DB Browser for SQLite"'
+alias dc='docker-compose'

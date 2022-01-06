@@ -25,4 +25,4 @@ fi
 # only create 3 if it doesn't exist
 # might have link for subl2, subl3 and a master for subl -> subl3 to help
 
-export GIT_EDITOR=subl
+#export GIT_EDITOR=subl

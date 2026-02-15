@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+"""
+Directory Size Tree Analyzer
+Scans directories, shows sizes in a tree format, and drills down into the top 3 largest.
+"""
+
+import os
+import sys
+from pathlib import Path
+from typing import List, Tuple
+
+# ANSI color codes
+YELLOW = '\033[93m'
+BLUE = '\033[94m'
+RESET = '\033[0m'
+GRAY = '\033[90m'
+
+def get_directory_size(path: Path) -> int:
+    """Get total size of directory in bytes."""
+    total = 0
+    try:
+        for entry in path.rglob('*'):
+            if entry.is_file():
+                try:
+                    total += entry.stat().st_size
+                except (PermissionError, FileNotFoundError):
+                    pass
+    except (PermissionError, FileNotFoundError):
+        pass
+    return total
+
+def format_size(bytes_size: int) -> str:
+    """Format bytes into human-readable size (MB or GB)."""
+    mb = bytes_size / (1024 * 1024)
+    if mb >= 1024:
+        gb = mb / 1024
+        return f"{gb:.1f} GB"
+    return f"{int(mb)} MB"
+
+def get_subdirectories_with_sizes(path: Path, min_size_mb: int = 5) -> List[Tuple[Path, int]]:
+    """Get immediate subdirectories with their sizes, filtered by minimum size."""
+    min_size_bytes = min_size_mb * 1024 * 1024
+    dirs_with_sizes = []
+    
+    try:
+        for entry in path.iterdir():
+            if entry.is_dir() and not entry.name.startswith('.'):
+                size = get_directory_size(entry)
+                if size >= min_size_bytes:
+                    dirs_with_sizes.append((entry, size))
+    except PermissionError:
+        pass
+    
+    # Sort by size descending
+    return sorted(dirs_with_sizes, key=lambda x: x[1], reverse=True)
+
+def print_tree_level(dirs: List[Tuple[Path, int]], prefix: str = "", is_last: bool = True, 
+                     level: int = 0, max_level: int = 2, top_n: int = 3):
+    """Print directory tree with sizes."""
+    
+    for i, (dir_path, size) in enumerate(dirs):
+        is_last_item = (i == len(dirs) - 1)
+        
+        # Determine connector
+        if level == 0:
+            connector = "├─" if not is_last_item else "└─"
+            new_prefix = prefix + ("│  " if not is_last_item else "   ")
+        else:
+            connector = "├─" if not is_last_item else "└─"
+            new_prefix = prefix + ("│  " if not is_last_item else "   ")
+        
+        # Format the line
+        size_str = f"{YELLOW}[{format_size(size)}]{RESET}"
+        dir_name = f"{BLUE}{dir_path.name}{RESET}"
+        
+        print(f"{prefix}{connector} {size_str} {dir_name}")
+        
+        # Recurse into top N directories if we haven't reached max level
+        if level < max_level and i < top_n:
+            subdirs = get_subdirectories_with_sizes(dir_path)
+            if subdirs:
+                print_tree_level(subdirs, new_prefix, is_last_item, level + 1, max_level, top_n)
+
+def main():
+    """Main function."""
+    # Get starting directory from args or use current directory
+    if len(sys.argv) > 1:
+        start_path = Path(sys.argv[1])
+    else:
+        start_path = Path.cwd()
+    
+    if not start_path.exists() or not start_path.is_dir():
+        print(f"Error: '{start_path}' is not a valid directory")
+        sys.exit(1)
+    
+    print(f"\n{BLUE}Directory Size Analysis{RESET}")
+    print(f"Path: {start_path.absolute()}")
+    print(f"Minimum size: 5 MB\n")
+    
+    # Get root directory size
+    root_size = get_directory_size(start_path)
+    root_size_str = f"{YELLOW}[{format_size(root_size)}]{RESET}"
+    print(f"{root_size_str} {BLUE}{start_path.name or 'root'}{RESET}")
+    
+    # Get and print subdirectories
+    subdirs = get_subdirectories_with_sizes(start_path)
+    
+    if not subdirs:
+        print(f"{GRAY}No subdirectories found above 5 MB threshold{RESET}")
+        return
+    
+    print_tree_level(subdirs, "", True, level=0, max_level=1, top_n=3)
+    
+    print(f"\n{GRAY}Note: Only showing directories ≥ 5 MB. Top 3 largest expanded one level.{RESET}\n")
+
+if __name__ == "__main__":
+    main()

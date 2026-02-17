@@ -1,0 +1,66 @@
+[user]
+	name = Shawn Casey
+	email = shawn.casey1@toyota.com
+
+[core]
+	excludesfile = /Users/shawn.casey1/.gitignore_global
+	compression = 9 # speed up network transfers and save some disk space
+	preloadindex = true # git will load the index into memory improving performance
+	editor = code --wait
+
+[status]
+	branch = true
+	showStash = true
+	showUntrackedFiles = all
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[commit]
+	template = /Users/shawn.casey1/.stCommitMsg
+
+[push]
+	autoSetupRemote = true
+
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	# cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$LOCAL $PWD/$REMOTE $PWD/$MERGED
+	trustExitCode = false
+
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+	conflictstyle = zdiff3
+	tool = p4mergetool
+
+# [diff]
+# 	algorithm = patience
+# 	colorMoved = default
+# 	# Detect copies as well as renames.
+# 	renames = copies
+# 	tool = p4mergetool
+
+[alias]
+	conf = config --global --edit
+	cge = config --global --edit
+	co = checkout
+	ci = commit
+	st = status
+	sla = !git --no-pager log --oneline --decorate --all --graph -35
+	lg = !git log --oneline --graph --decorate
+	lga = "!git log --oneline --graph --decorate --pretty=format:\"%C(yellow)%h %C(cyan)%an %C(green)%cr%C(reset) - %s\""
+	r = reset --hard
+	rh = reset HEAD
+	nuke = !git reset --hard && git clean -fd
+	aa = add -A
+	cdf = clead -df
+	pr = pull --rebase
+    spull = "!git stash && git pull --rebase && git stash pop"
+	amend = commit -a --amend --no-edit
+	ciam = commit -a --amend --no-edit
+# use git commit --amend to edit the final message

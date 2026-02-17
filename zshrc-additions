@@ -1,0 +1,93 @@
+export PATH="/opt/homebrew/opt/dart@3.0./bin:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$HOME/dotfiles/scripts"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/shawn.casey1/.dart-cli-completion/zsh-config.zsh ]] && . /Users/shawn.casey1/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+eval "$(rbenv init -)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export PROJECT_DIR=$PROJECT_DIR
+export ACTIVE_CONFIGURATION=stg
+export TARGET_NAME=ToyotaOneApp
+export PATH="$HOME/.pyenv/bin:$PATH"
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export PROMPT="%~ %# "
+
+# Color Support
+autoload -U promptinit && promptinit
+autoload -U colors && colors
+# # PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+#PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%(5~|%-1~/.../%3~|%4~) %{$reset_color%}%% "
+export CLICOLOR=1
+
+# Case-insensitive Autocomplete
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+##eval "$(/opt/homebrew/bin/brew shellenv)"
+
+############################################################
+# Show git branch
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable to show only the branch name (%b)
+zstyle ':vcs_info:git:*' formats '(%F{yellow}%b%f)'
+
+# Enable dirty state detection
+zstyle ':vcs_info:git:*' check-for-changes true
+
+# Show dirty state symbol '*' if repository is dirty
+zstyle ':vcs_info:*' stagedstr '*'
+zstyle ':vcs_info:*' unstagedstr '*'
+
+# Enable prompt substitution and set the prompt
+setopt PROMPT_SUBST
+PROMPT='${PWD/#$HOME/~} ${vcs_info_msg_0_}%% '
+############################################################
+
+#setopt prompt_subst
+# PS1="%F{yellow}${vcs_info_msg_0_}%f\$PS1"
+
+# getBranch() {
+#    git rev-parse --abbrev-ref HEAD 2>/dev/null
+#}
+#setopt PROMPT_SUBST
+#export PS1='\$(getBranch)\$PS1'
+
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+
+# FVM
+export PATH="/Users/shawn.casey1/.fvm_flutter/bin:$PATH"
+export PATH="/opt/homebrew/opt/dart@3.0./bin:$PATH"
+
+# Add scripts to PATH
+export PATH="$HOME/scripts:$PATH"
+
+# Git worktree helper
+gwt() {
+    if [ -z "$1" ]; then
+        echo "Usage: gwt <branch-name>"
+        return 1
+    fi
+    local worktree_path=$(git-create-worktree.sh "$1")
+    if [ $? -eq 0 ] && [ -n "$worktree_path" ]; then
+        echo "Switching to: $worktree_path"
+        cd "$worktree_path"
+    fi
+}
+
+ob() {
+    if [ -z "$1" ]; then
+        echo "Usage: ob <file-name>"
+        return 1
+    fi
+    open-in-obsidian.sh "$1"
+}

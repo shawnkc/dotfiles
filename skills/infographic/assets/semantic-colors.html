@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CXD Semantic Colors</title>
+  <style id="brand-fonts">
+    @font-face {
+      font-family: 'ToyotaType';
+      src: url('./fonts/ToyotaType/ToyotaType-Regular.ttf') format('truetype');
+      font-weight: 400; font-style: normal; font-display: block;
+    }
+    @font-face {
+      font-family: 'ToyotaType';
+      src: url('./fonts/ToyotaType/ToyotaType-Bold.ttf') format('truetype');
+      font-weight: 700; font-style: normal; font-display: block;
+    }
+  </style>
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       DESIGN TOKENS  (verbatim from design-system.html)
+    ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --color-base-black:    #000000;
+      --color-base-white:    #FFFFFF;
+      --color-navy:          #0E2841;
+      --color-gray-100:      #E8E8E8;
+      --color-gray-200:      #D0D0D0;
+      --color-gray-300:      #A8A8A8;
+      --color-gray-500:      #6B6B6B;
+      --color-blue:          #156082;
+      --color-blue-light:    #0F9ED5;
+      --color-orange:        #E97132;
+      --color-green:         #196B24;
+      --color-green-light:   #4EA72E;
+      --color-purple:        #A02B93;
+      --color-teal:          #467886;
+      --color-mauve:         #96607D;
+      --color-dark-bg:       #12121E;
+      --color-dark-navy:     #021E45;
+      --color-electric-blue: #00B0F0;
+      --color-toyota-red:    #EB0A1E;
+
+      --bg-page:              #F2F4F6;
+      --bg-surface:           #FFFFFF;
+      --bg-surface-2:         #EFF1F4;
+      --text-primary:         #0E2841;
+      --text-secondary:       #467886;
+      --text-muted:           #6B7A8A;
+      --border-subtle:        #E4E7EB;
+      --border-default:       #CDD2D8;
+      --accent-primary:       #156082;
+      --accent-primary-hover: #0E4D67;
+      --accent-secondary:     #E97132;
+      --accent-cta:           #E97132;
+
+      --font-display: 'ToyotaType', sans-serif;
+      --font-body:    'ToyotaType', sans-serif;
+      --font-mono:    monospace;
+
+      --text-xs:   0.75rem;
+      --text-sm:   0.875rem;
+      --text-base: 1rem;
+      --text-lg:   1.125rem;
+      --text-xl:   1.25rem;
+      --text-2xl:  1.5rem;
+      --text-3xl:  1.875rem;
+
+      --space-1:  0.25rem;  --space-2:  0.5rem;   --space-3:  0.75rem;
+      --space-4:  1rem;     --space-5:  1.25rem;  --space-6:  1.5rem;
+      --space-8:  2rem;     --space-10: 2.5rem;   --space-12: 3rem;
+      --space-16: 4rem;
+
+      --radius-sm:   0.25rem;  --radius-md:   0.5rem;
+      --radius-lg:   0.75rem;  --radius-xl:   1rem;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(14,40,65,.08), 0 1px 2px rgba(14,40,65,.06);
+      --shadow-md: 0 4px 12px rgba(14,40,65,.10), 0 2px 4px rgba(14,40,65,.06);
+      --shadow-lg: 0 10px 30px rgba(14,40,65,.12), 0 4px 8px rgba(14,40,65,.06);
+
+      --transition-fast: 120ms ease;
+      --transition-base: 200ms ease;
+      --transition-slow: 350ms ease;
+    }
+
+    [data-theme="dark"] {
+      --font-display: 'ToyotaType', sans-serif;
+      --font-body:    'ToyotaType', sans-serif;
+      --bg-page:              #0D0D18;
+      --bg-surface:           #12121E;
+      --bg-surface-2:         #1A1A2E;
+      --text-primary:         #EEF2F6;
+      --text-secondary:       #00B0F0;
+      --text-muted:           #7A8EA0;
+      --border-subtle:        #1C2A3A;
+      --border-default:       #28394C;
+      --accent-primary:       #00B0F0;
+      --accent-primary-hover: #0F9ED5;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.5);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.6);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,.7);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SEMANTIC COLOR LAYER
+       Maps high-level UI roles → design system tokens.
+       Use these in components; never reference raw --color-* directly.
+    ═══════════════════════════════════════════════════════════════ */
+    :root {
+      /* ── Backgrounds ── */
+      --background:            var(--bg-page);
+      --background-secondary:  var(--bg-surface);
+      --background-elevated:   var(--bg-surface-2);
+      --background-inverse:    var(--color-navy);
+      --background-overlay:    rgba(14, 40, 65, 0.6);
+
+      /* ── Foreground / Text ── */
+      --foreground:            var(--text-primary);
+      --foreground-secondary:  var(--text-secondary);
+      --foreground-muted:      var(--text-muted);
+      --foreground-placeholder: var(--text-muted);
+      --foreground-inverse:    var(--color-base-white);
+      --foreground-link:       var(--accent-primary);
+      --foreground-link-hover: var(--accent-primary-hover);
+
+      /* ── Borders ── */
+      --border:                var(--border-default);
+      --border-faint:          var(--border-subtle);
+      --border-strong:         var(--color-gray-300);
+      --border-focus:          var(--accent-primary);
+
+      /* ── Primary Button ── */
+      --button-primary-bg:       var(--accent-primary);
+      --button-primary-text:     var(--color-base-white);
+      --button-primary-hover-bg: var(--accent-primary-hover);
+
+      /* ── Secondary Button ── */
+      --button-secondary-bg:     var(--bg-surface);
+      --button-secondary-text:   var(--text-primary);
+      --button-secondary-border: var(--border-default);
+
+      /* ── CTA Button ── */
+      --button-cta-bg:           var(--accent-cta);
+      --button-cta-text:         var(--color-base-white);
+
+      /* ── Danger / Destructive Button ── */
+      --button-danger-bg:        var(--color-toyota-red);
+      --button-danger-text:      var(--color-base-white);
+
+      /* ── Ghost Button ── */
+      --button-ghost-text:       var(--accent-primary);
+      --button-ghost-hover-bg:   var(--bg-surface-2);
+
+      /* ── Disabled State ── */
+      --button-disabled-bg:      var(--color-gray-100);
+      --button-disabled-text:    var(--color-gray-300);
+
+      /* ── Status: Success ── */
+      --status-success:          var(--color-green);
+      --status-success-subtle:   #E5F3E6;
+      --status-success-text:     var(--color-green);
+      --status-success-border:   rgba(25, 107, 36, 0.25);
+
+      /* ── Status: Warning ── */
+      --status-warning:          var(--color-orange);
+      --status-warning-subtle:   #FDF0E8;
+      --status-warning-text:     #C55E25;
+      --status-warning-border:   rgba(233, 113, 50, 0.25);
+
+      /* ── Status: Danger ── */
+      --status-danger:           var(--color-toyota-red);
+      --status-danger-subtle:    #FDECEC;
+      --status-danger-text:      #B8091A;
+      --status-danger-border:    rgba(235, 10, 30, 0.25);
+
+      /* ── Status: Info ── */
+      --status-info:             var(--color-blue-light);
+      --status-info-subtle:      #E2F4FC;
+      --status-info-text:        #0A7AAD;
+      --status-info-border:      rgba(15, 158, 213, 0.25);
+
+      /* ── Navigation ── */
+      --nav-bg:                  var(--bg-surface);
+      --nav-border:              var(--border-subtle);
+      --nav-link-text:           var(--text-muted);
+      --nav-link-hover-bg:       var(--bg-surface-2);
+      --nav-link-active-bg:      var(--bg-surface-2);
+      --nav-link-active-text:    var(--accent-primary);
+    }
+
+    [data-theme="dark"] {
+      --background-inverse:    var(--color-dark-navy);
+      --background-overlay:    rgba(0, 0, 0, 0.7);
+      --button-secondary-bg:   var(--bg-surface-2);
+      --button-ghost-hover-bg: var(--bg-surface-2);
+      --button-disabled-bg:    rgba(255,255,255,0.08);
+      --button-disabled-text:  rgba(255,255,255,0.25);
+      --status-success-subtle: rgba(25, 107, 36, 0.15);
+      --status-success-text:   #5DCB68;
+      --status-warning-subtle: rgba(233, 113, 50, 0.14);
+      --status-warning-text:   #E97132;
+      --status-danger-subtle:  rgba(235, 10, 30, 0.12);
+      --status-danger-text:    #FF5A5A;
+      --status-info-subtle:    rgba(15, 158, 213, 0.14);
+      --status-info-text:      #0F9ED5;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--background);
+      color: var(--foreground);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      transition: background var(--transition-slow), color var(--transition-slow);
+      min-height: 100vh;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       LAYOUT
+    ═══════════════════════════════════════════════════════════════ */
+    .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+      background: var(--nav-bg);
+      border-right: 1px solid var(--nav-border);
+      padding: var(--space-8) 0;
+      display: flex; flex-direction: column;
+    }
+    .sidebar-brand { padding: 0 var(--space-6) var(--space-6); border-bottom: 1px solid var(--border-subtle); margin-bottom: var(--space-6); }
+    .brand-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--foreground-muted); display: block; margin-bottom: var(--space-2); }
+    .brand-name { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; color: var(--foreground); letter-spacing: -0.03em; line-height: 1.1; }
+    .brand-name span { color: var(--accent-primary); }
+
+    .sidebar-nav { padding: 0 var(--space-3); flex: 1; }
+    .nav-section { margin-bottom: var(--space-6); }
+    .nav-section-label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--foreground-muted); padding: 0 var(--space-3); display: block; margin-bottom: var(--space-2); }
+    .nav-link { display: block; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--nav-link-text); text-decoration: none; transition: all var(--transition-fast); }
+    .nav-link:hover { background: var(--nav-link-hover-bg); color: var(--foreground); }
+    .nav-link.active { background: var(--nav-link-active-bg); color: var(--nav-link-active-text); font-weight: 600; }
+    .nav-link.external::after { content: ' ↗'; font-size: 0.7em; opacity: 0.5; }
+
+    .sidebar-footer { padding: var(--space-6); border-top: 1px solid var(--border-subtle); margin-top: auto; display: flex; flex-direction: column; gap: var(--space-3); }
+    .theme-toggle { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border-default); background: var(--background-secondary); color: var(--foreground); font-family: var(--font-body); font-size: var(--text-sm); cursor: pointer; transition: all var(--transition-fast); }
+    .theme-toggle:hover { background: var(--background-elevated); }
+    .back-link { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background: transparent; color: var(--foreground-secondary); font-family: var(--font-body); font-size: var(--text-sm); cursor: pointer; text-decoration: none; transition: all var(--transition-fast); }
+    .back-link:hover { background: var(--background-elevated); color: var(--foreground); }
+
+    /* ── Main content ── */
+    .main { padding: var(--space-10) var(--space-12); max-width: 1100px; }
+
+    .page-header { margin-bottom: var(--space-10); padding-bottom: var(--space-8); border-bottom: 1px solid var(--border-subtle); }
+    .page-eyebrow { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-primary); margin-bottom: var(--space-2); }
+    .page-title { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 800; letter-spacing: -0.03em; color: var(--foreground); margin-bottom: var(--space-3); }
+    .page-desc { font-size: var(--text-base); color: var(--foreground-secondary); max-width: 680px; line-height: 1.7; }
+
+    /* ── Section ── */
+    .color-section { margin-bottom: var(--space-12); }
+    .color-section-header { margin-bottom: var(--space-5); }
+    .color-section-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: var(--foreground); margin-bottom: var(--space-1); }
+    .color-section-desc { font-size: var(--text-sm); color: var(--foreground-muted); }
+
+    /* ── Swatch table ── */
+    .swatch-table { width: 100%; border-collapse: collapse; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border-subtle); }
+    .swatch-table thead th { background: var(--background-elevated); padding: var(--space-3) var(--space-4); text-align: left; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--foreground-muted); border-bottom: 1px solid var(--border-subtle); }
+    .swatch-table tbody tr { border-bottom: 1px solid var(--border-faint); transition: background var(--transition-fast); }
+    .swatch-table tbody tr:last-child { border-bottom: none; }
+    .swatch-table tbody tr:hover { background: var(--background-elevated); }
+    .swatch-table td { padding: var(--space-3) var(--space-4); vertical-align: middle; font-size: var(--text-sm); }
+
+    .swatch-cell { display: flex; align-items: center; gap: var(--space-3); }
+    .swatch-box {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
+      background: var(--swatch-color, var(--border-default));
+    }
+    .swatch-pair { display: flex; gap: var(--space-2); }
+    .swatch-pair .swatch-box { width: 28px; height: 28px; }
+
+    .token-name { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent-primary); font-weight: 600; }
+    .token-maps { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--foreground-muted); }
+    .token-maps::before { content: '→ '; }
+    .token-desc { font-size: var(--text-sm); color: var(--foreground); }
+    .token-detail { font-size: var(--text-xs); color: var(--foreground-muted); margin-top: 2px; }
+
+    /* ── Status group swatches ── */
+    .status-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+    .status-card {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .status-card-header {
+      padding: var(--space-4) var(--space-5);
+      display: flex; align-items: center; gap: var(--space-3);
+    }
+    .status-swatch-lg {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+    .status-name { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--foreground); }
+    .status-card-tokens { padding: var(--space-3) var(--space-5) var(--space-4); border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--space-2); background: var(--background-secondary); }
+    .status-token-row { display: flex; align-items: center; gap: var(--space-3); }
+    .status-mini-swatch { width: 20px; height: 20px; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.08); flex-shrink: 0; }
+
+    /* ── Button preview ── */
+    .btn-preview { display: flex; flex-wrap: wrap; gap: var(--space-3); padding: var(--space-5); background: var(--background-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); }
+    .btn-demo { padding: 8px 20px; border-radius: var(--radius-full); font-family: var(--font-display); font-size: var(--text-sm); font-weight: 600; cursor: default; border: 1px solid transparent; letter-spacing: 0.02em; }
+    .btn-primary-demo  { background: var(--button-primary-bg); color: var(--button-primary-text); }
+    .btn-secondary-demo { background: var(--button-secondary-bg); color: var(--button-secondary-text); border-color: var(--button-secondary-border); }
+    .btn-cta-demo      { background: var(--button-cta-bg); color: var(--button-cta-text); }
+    .btn-danger-demo   { background: var(--button-danger-bg); color: var(--button-danger-text); }
+    .btn-ghost-demo    { background: transparent; color: var(--button-ghost-text); border-color: var(--button-ghost-text); }
+    .btn-disabled-demo { background: var(--button-disabled-bg); color: var(--button-disabled-text); cursor: not-allowed; }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-label">CXD Design System</span>
+      <div class="brand-name">Semantic<br><span>Colors</span></div>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-label">Categories</span>
+        <a href="#backgrounds"  class="nav-link active">Backgrounds</a>
+        <a href="#foreground"   class="nav-link">Foreground / Text</a>
+        <a href="#borders"      class="nav-link">Borders</a>
+        <a href="#buttons"      class="nav-link">Buttons</a>
+        <a href="#status"       class="nav-link">Status</a>
+        <a href="#navigation"   class="nav-link">Navigation</a>
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="theme-icon">🌙</span>
+        <span id="theme-label">Dark Mode</span>
+      </button>
+      <a href="./design-system.html" class="back-link">← Design System</a>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="page-header">
+      <div class="page-eyebrow">Foundations</div>
+      <h1 class="page-title">Semantic Colors</h1>
+      <p class="page-desc">
+        High-level UI role tokens that map to the raw palette defined in the design system.
+        Use these in components — never reference <code style="font-family:var(--font-mono);font-size:0.85em">--color-*</code> raw tokens directly.
+        All tokens automatically respond to light / dark theme via CSS custom property inheritance.
+      </p>
+    </div>
+
+    <!-- BACKGROUNDS -->
+    <div class="color-section" id="backgrounds">
+      <div class="color-section-header">
+        <div class="color-section-title">Backgrounds</div>
+        <div class="color-section-desc">Surface layers from page level up to elevated overlays.</div>
+      </div>
+      <table class="swatch-table">
+        <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--background)"></div><span class="token-name">--background</span></div></td><td><span class="token-maps">--bg-page</span></td><td><span class="token-desc">Page / app background</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--background-secondary)"></div><span class="token-name">--background-secondary</span></div></td><td><span class="token-maps">--bg-surface</span></td><td><span class="token-desc">Cards, panels, modals</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--background-elevated)"></div><span class="token-name">--background-elevated</span></div></td><td><span class="token-maps">--bg-surface-2</span></td><td><span class="token-desc">Hover states, headers within cards, table row alternates</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--background-inverse)"></div><span class="token-name">--background-inverse</span></div></td><td><span class="token-maps">--color-navy</span></td><td><span class="token-desc">Dark headers, footer bars, inverse sections</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: rgba(14,40,65,0.6)"></div><span class="token-name">--background-overlay</span></div></td><td><span class="token-maps">rgba(navy, 0.6)</span></td><td><span class="token-desc">Modal backdrop, sheet overlays</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FOREGROUND / TEXT -->
+    <div class="color-section" id="foreground">
+      <div class="color-section-header">
+        <div class="color-section-title">Foreground / Text</div>
+        <div class="color-section-desc">Text and icon colors across emphasis levels and states.</div>
+      </div>
+      <table class="swatch-table">
+        <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--foreground)"></div><span class="token-name">--foreground</span></div></td><td><span class="token-maps">--text-primary</span></td><td><span class="token-desc">Headings, body text, high-emphasis labels</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--foreground-secondary)"></div><span class="token-name">--foreground-secondary</span></div></td><td><span class="token-maps">--text-secondary</span></td><td><span class="token-desc">Supporting text, captions, sidebar labels</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--foreground-muted)"></div><span class="token-name">--foreground-muted</span></div></td><td><span class="token-maps">--text-muted</span></td><td><span class="token-desc">Hints, timestamps, low-priority metadata</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--foreground-placeholder)"></div><span class="token-name">--foreground-placeholder</span></div></td><td><span class="token-maps">--text-muted</span></td><td><span class="token-desc">Form input placeholder text</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--foreground-inverse); border-color: rgba(255,255,255,0.2)"></div><span class="token-name">--foreground-inverse</span></div></td><td><span class="token-maps">--color-base-white</span></td><td><span class="token-desc">Text on dark / inverse backgrounds</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--foreground-link)"></div><span class="token-name">--foreground-link</span></div></td><td><span class="token-maps">--accent-primary</span></td><td><span class="token-desc">Hyperlinks, interactive text</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--foreground-link-hover)"></div><span class="token-name">--foreground-link-hover</span></div></td><td><span class="token-maps">--accent-primary-hover</span></td><td><span class="token-desc">Link hover and active state</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BORDERS -->
+    <div class="color-section" id="borders">
+      <div class="color-section-header">
+        <div class="color-section-title">Borders</div>
+        <div class="color-section-desc">Line and outline colors for dividers, cards, inputs, and focus rings.</div>
+      </div>
+      <table class="swatch-table">
+        <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--border-faint)"></div><span class="token-name">--border-faint</span></div></td><td><span class="token-maps">--border-subtle</span></td><td><span class="token-desc">Hairline dividers, table row separators</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--border)"></div><span class="token-name">--border</span></div></td><td><span class="token-maps">--border-default</span></td><td><span class="token-desc">Card borders, input outlines (default state)</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--border-strong)"></div><span class="token-name">--border-strong</span></div></td><td><span class="token-maps">--color-gray-300</span></td><td><span class="token-desc">High-contrast dividers, selected item outlines</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--border-focus)"></div><span class="token-name">--border-focus</span></div></td><td><span class="token-maps">--accent-primary</span></td><td><span class="token-desc">Input focus ring, keyboard-focus outline</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="color-section" id="buttons">
+      <div class="color-section-header">
+        <div class="color-section-title">Buttons</div>
+        <div class="color-section-desc">Background, foreground, and border tokens for every button variant.</div>
+      </div>
+
+      <!-- Live preview -->
+      <div class="btn-preview" style="margin-bottom: var(--space-5)">
+        <button class="btn-demo btn-primary-demo">Primary</button>
+        <button class="btn-demo btn-secondary-demo">Secondary</button>
+        <button class="btn-demo btn-cta-demo">CTA</button>
+        <button class="btn-demo btn-danger-demo">Danger</button>
+        <button class="btn-demo btn-ghost-demo">Ghost</button>
+        <button class="btn-demo btn-disabled-demo" disabled>Disabled</button>
+      </div>
+
+      <table class="swatch-table">
+        <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-primary-bg)"></div><span class="token-name">--button-primary-bg</span></div></td><td><span class="token-maps">--accent-primary</span></td><td><span class="token-desc">Primary button fill</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-primary-text); border-color:rgba(0,0,0,.08)"></div><span class="token-name">--button-primary-text</span></div></td><td><span class="token-maps">--color-base-white</span></td><td><span class="token-desc">Label on primary button</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-primary-hover-bg)"></div><span class="token-name">--button-primary-hover-bg</span></div></td><td><span class="token-maps">--accent-primary-hover</span></td><td><span class="token-desc">Primary button hover / pressed</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-secondary-bg)"></div><span class="token-name">--button-secondary-bg</span></div></td><td><span class="token-maps">--bg-surface</span></td><td><span class="token-desc">Secondary button fill</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-secondary-border)"></div><span class="token-name">--button-secondary-border</span></div></td><td><span class="token-maps">--border-default</span></td><td><span class="token-desc">Secondary button outline</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-cta-bg)"></div><span class="token-name">--button-cta-bg</span></div></td><td><span class="token-maps">--accent-cta</span></td><td><span class="token-desc">Call-to-action button fill (orange)</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-danger-bg)"></div><span class="token-name">--button-danger-bg</span></div></td><td><span class="token-maps">--color-toyota-red</span></td><td><span class="token-desc">Destructive action button</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-ghost-text)"></div><span class="token-name">--button-ghost-text</span></div></td><td><span class="token-maps">--accent-primary</span></td><td><span class="token-desc">Ghost / text-only button label and border</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-disabled-bg)"></div><span class="token-name">--button-disabled-bg</span></div></td><td><span class="token-maps">--color-gray-100</span></td><td><span class="token-desc">Any button in disabled state</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--button-disabled-text)"></div><span class="token-name">--button-disabled-text</span></div></td><td><span class="token-maps">--color-gray-300</span></td><td><span class="token-desc">Label on disabled button</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- STATUS -->
+    <div class="color-section" id="status">
+      <div class="color-section-header">
+        <div class="color-section-title">Status</div>
+        <div class="color-section-desc">Semantic feedback colors for success, warning, danger, and informational states.</div>
+      </div>
+      <div class="status-grid">
+
+        <div class="status-card">
+          <div class="status-card-header" style="background: var(--status-success-subtle)">
+            <div class="status-swatch-lg" style="background: var(--status-success)"></div>
+            <div class="status-name" style="color: var(--status-success-text)">Success</div>
+          </div>
+          <div class="status-card-tokens">
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-success)"></div><span class="token-name">--status-success</span><span class="token-maps">--color-green</span></div>
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-success-subtle)"></div><span class="token-name">--status-success-subtle</span><span class="token-maps">#E5F3E6</span></div>
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-success-text)"></div><span class="token-name">--status-success-text</span><span class="token-maps">--color-green</span></div>
+          </div>
+        </div>
+
+        <div class="status-card">
+          <div class="status-card-header" style="background: var(--status-warning-subtle)">
+            <div class="status-swatch-lg" style="background: var(--status-warning)"></div>
+            <div class="status-name" style="color: var(--status-warning-text)">Warning</div>
+          </div>
+          <div class="status-card-tokens">
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-warning)"></div><span class="token-name">--status-warning</span><span class="token-maps">--color-orange</span></div>
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-warning-subtle)"></div><span class="token-name">--status-warning-subtle</span><span class="token-maps">#FDF0E8</span></div>
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-warning-text)"></div><span class="token-name">--status-warning-text</span><span class="token-maps">#C55E25</span></div>
+          </div>
+        </div>
+
+        <div class="status-card">
+          <div class="status-card-header" style="background: var(--status-danger-subtle)">
+            <div class="status-swatch-lg" style="background: var(--status-danger)"></div>
+            <div class="status-name" style="color: var(--status-danger-text)">Danger</div>
+          </div>
+          <div class="status-card-tokens">
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-danger)"></div><span class="token-name">--status-danger</span><span class="token-maps">--color-toyota-red</span></div>
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-danger-subtle)"></div><span class="token-name">--status-danger-subtle</span><span class="token-maps">#FDECEC</span></div>
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-danger-text)"></div><span class="token-name">--status-danger-text</span><span class="token-maps">#B8091A</span></div>
+          </div>
+        </div>
+
+        <div class="status-card">
+          <div class="status-card-header" style="background: var(--status-info-subtle)">
+            <div class="status-swatch-lg" style="background: var(--status-info)"></div>
+            <div class="status-name" style="color: var(--status-info-text)">Info</div>
+          </div>
+          <div class="status-card-tokens">
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-info)"></div><span class="token-name">--status-info</span><span class="token-maps">--color-blue-light</span></div>
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-info-subtle)"></div><span class="token-name">--status-info-subtle</span><span class="token-maps">#E2F4FC</span></div>
+            <div class="status-token-row"><div class="status-mini-swatch" style="background:var(--status-info-text)"></div><span class="token-name">--status-info-text</span><span class="token-maps">#0A7AAD</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="color-section" id="navigation">
+      <div class="color-section-header">
+        <div class="color-section-title">Navigation</div>
+        <div class="color-section-desc">Sidebar, tab bar, and nav link colors for all interaction states.</div>
+      </div>
+      <table class="swatch-table">
+        <thead><tr><th>Token</th><th>Maps to</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--nav-bg)"></div><span class="token-name">--nav-bg</span></div></td><td><span class="token-maps">--bg-surface</span></td><td><span class="token-desc">Sidebar / nav container background</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--nav-border)"></div><span class="token-name">--nav-border</span></div></td><td><span class="token-maps">--border-subtle</span></td><td><span class="token-desc">Nav divider line</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--nav-link-text)"></div><span class="token-name">--nav-link-text</span></div></td><td><span class="token-maps">--text-muted</span></td><td><span class="token-desc">Default nav link color</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--nav-link-hover-bg)"></div><span class="token-name">--nav-link-hover-bg</span></div></td><td><span class="token-maps">--bg-surface-2</span></td><td><span class="token-desc">Nav link hover state</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--nav-link-active-bg)"></div><span class="token-name">--nav-link-active-bg</span></div></td><td><span class="token-maps">--bg-surface-2</span></td><td><span class="token-desc">Active / current page nav item</span></td></tr>
+          <tr><td><div class="swatch-cell"><div class="swatch-box" style="--swatch-color: var(--nav-link-active-text)"></div><span class="token-name">--nav-link-active-text</span></div></td><td><span class="token-maps">--accent-primary</span></td><td><span class="token-desc">Active nav item label color</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('theme-icon').textContent  = isDark ? '🌙' : '☀️';
+    document.getElementById('theme-label').textContent = isDark ? 'Dark Mode' : 'Light Mode';
+  }
+
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('.color-section');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  const observer  = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

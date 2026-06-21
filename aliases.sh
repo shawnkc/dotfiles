@@ -8,7 +8,11 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
-alias s=subl
+alias s="source ~/.zshrc"
+
+alias codexy="codex --dangerously-bypass-approvals-and-sandbox"
+alias claudey="claude --dangerously-skip-permissions"
+
 alias l='ls -lFogG'
 alias la='ls -lAFogG'
 alias lart='ls -lArtFogG'

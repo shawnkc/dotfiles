@@ -8,13 +8,8 @@ tap 'jesseduffield/lazygit'
 # Command Line                                              #
 #############################################################
 
-# Fonts
-cask 'font-0xproto-nerd-font'           # https://www.nerdfonts.com/font-downloads
-cask 'font-bigblue-terminal-nerd-font'  # https://www.nerdfonts.com/font-downloads
-cask 'font-inconsolata-nerd-font'       # https://www.nerdfonts.com/font-downloads
-
 # CLI Essentials
-brew 'git'          # Version controll
+# brew 'git'          # Version control
 brew 'neovim'       # Text editor
 brew 'ranger'       # Directory browser
 brew 'tmux'         # Term multiplexer
@@ -62,10 +57,10 @@ brew 'speedtest-cli'# Command line speed test utility
 
 # CLI Productivity Apps
 brew 'aspell'       # Spell check
-brew 'browsh'       # Web browser, in terminal
-brew 'buku'         # Bookmark manager
-brew 'cmus'         # Music player
-brew 'cointop'      # Crypto prices and portfolio
+# brew 'browsh'       # Web browser, in terminal
+# brew 'buku'         # Bookmark manager
+# brew 'cmus'         # Music player
+# brew 'cointop'      # Crypto prices and portfolio
 brew 'ddgr'         # Web search, via DuckDuckGo
 brew 'khal'         # Calendar client
 brew 'mutt'         # Email client
@@ -99,94 +94,107 @@ brew 'pv'           # Pipe viewer, with animation options
 #############################################################
 
 # Development Apps
-cask 'android-studio' # IDE for Android development
+# cask 'android-studio' # IDE for Android development
 cask 'boop'           # Text transformation tool
-brew 'gradle'         # Build automation for Java
+# brew 'gradle'         # Build automation for Java
 cask 'iterm2'         # Better terminal emulator
 cask 'postman'        # HTTP API testing app
 cask 'sourcetree'     # Git visual client
 cask 'visual-studio-code' # Code editor
+cask 'xcodes-app'     # Xcode image download manager
+cask 'p4v'            # perforce
 
 # Development Langs, Compilers, Package Managers and SDKs
-brew 'gcc'            # GNU C++ compilers
+# brew 'gcc'            # GNU C++ compilers
 brew 'go'             # Compiler for Go Lang
-brew 'lua'            # Lua interpreter
-brew 'luarocks'       # Package manager for Lua
-brew 'node'           # Node.js
-brew 'nvm'            # Switching node versions
-brew 'openjdk'        # Java development kit
+# brew 'lua'            # Lua interpreter
+# brew 'luarocks'       # Package manager for Lua
+# brew 'node'           # Node.js
+# brew 'nvm'            # Switching node versions
+# brew 'openjdk'        # Java development kit
 brew 'python'         # Python interpreter
-brew 'rust'           # Rust language
-cask 'android-sdk'    # Android software dev kit
+# brew 'rust'           # Rust language
+# cask 'android-sdk'    # Android software dev kit
+brew 'ruby-build'
+brew 'sonar-scanner'
+brew 'swift-format'
+brew 'swiftformat'
+brew 'swiftlint'
+brew 'xcbeautify'
+
+# AI
+brew 'xcodebuildmcp'.   # Xcode build MCP hooks
+brew 'copilot-cli'      # MS Copilot CLI 
+brew 'github-copilot-for-xcode' # MS Copilot for Xcode plugin
 
 # DevOps
-brew 'ansible'        # Automation
+# brew 'ansible'        # Automation
 brew 'docker'         # Containers
 
 # Development Utils
 brew 'gh'             # Interact with GitHub PRs, issues, repos
 brew 'git-extras'     # Extra git commands for common tasks
-brew 'scrcpy'         # Display and control Android devices
-brew 'terminal-notifier' # Trigger Mac notifications from terminal
-brew 'tig'            # Text-mode interface for git
-brew 'ttygif'         # Generate GIF from terminal commands + output
-brew 'watchman'       # Watch for changes and reload dev server
+# brew 'scrcpy'         # Display and control Android devices
+# brew 'terminal-notifier' # Trigger Mac notifications from terminal
+# brew 'tig'            # Text-mode interface for git
+# brew 'ttygif'         # Generate GIF from terminal commands + output
+# brew 'watchman'       # Watch for changes and reload dev server
 
 # Network and Security Testing
-brew 'bettercap'      # Network, scanning and monitoring
-brew 'nmap'           # Port scanning
-brew 'wrk'            # HTTP benchmarking
-cask 'burp-suite'     # Web security testing
-cask 'owasp-zap'      # Web app security scanner
-cask 'wireshark'      # Network analyzer + packet capture
+# brew 'bettercap'      # Network, scanning and monitoring
+# brew 'nmap'           # Port scanning
+# brew 'wrk'            # HTTP benchmarking
+# cask 'burp-suite'     # Web security testing
+# cask 'owasp-zap'      # Web app security scanner
+# cask 'wireshark'      # Network analyzer + packet capture
 
 # Security Utilities and Data Encryption
-brew 'bcrypt'         # Encryption utility, using blowfish
-brew 'borgbackup'     # Encrypted, deduplicated backups
-brew 'clamav'         # Open source virus scanning suite
-brew 'dnscrypt-proxy' # Proxy for using encrypted DNS
-cask 'gpg-suite'      # PGP encryption for emails and files
-brew 'git-crypt'      # Transparent encryption for git repos
-brew 'lynis'          # Scan system for common security issues
-brew 'openssl'        # Cryptography and SSL/TLS Toolkit
-brew 'rkhunter'       # Search / detect potential root kits
-cask 'veracrypt'      # File and volume encryption
+# brew 'bcrypt'         # Encryption utility, using blowfish
+# brew 'borgbackup'     # Encrypted, deduplicated backups
+# brew 'clamav'         # Open source virus scanning suite
+# brew 'dnscrypt-proxy' # Proxy for using encrypted DNS
+# cask 'gpg-suite'      # PGP encryption for emails and files
+# brew 'git-crypt'      # Transparent encryption for git repos
+# brew 'lynis'          # Scan system for common security issues
+# brew 'openssl'        # Cryptography and SSL/TLS Toolkit
+# brew 'rkhunter'       # Search / detect potential root kits
+# cask 'veracrypt'      # File and volume encryption
 
 #############################################################
 # Desktop Applications                                      #
 #############################################################
 
 # Creativity
-cask 'audacity'     # Audio editor / recorder
-cask 'gimp'         # Photo editor
-brew 'handbrake'    # Video transcoder
-cask 'inkscape'     # Vector editor
-cask 'obs'          # Screencasting / recording
-cask 'shotcut'      # Video editor
+# cask 'audacity'     # Audio editor / recorder
+# cask 'gimp'         # Photo editor
+# brew 'handbrake'    # Video transcoder
+# cask 'inkscape'     # Vector editor
+# cask 'obs'          # Screencasting / recording
+# cask 'shotcut'      # Video editor
 
 # Media
-cask 'calibre'      # E-Book reader
+# cask 'calibre'      # E-Book reader
 cask 'spotify', args: { require_sha: false } # Propietary music streaming
-cask 'transmission' # Torrent client
+# cask 'transmission' # Torrent client
 cask 'vlc'          # Media player
 brew 'pandoc'       # Universal file converter
-brew 'youtube-dl'   # YouTube video downloader
+# brew 'youtube-dl'   # YouTube video downloader
 
 # Personal Applications
 cask '1password'      # Password manager (proprietary)
-cask 'tresorit'       # Encrypted file backup (proprietary)
-cask 'standard-notes' # Encrypted synced notes
-cask 'signal'         # Link to encrypted mobile messenger
-cask 'ledger-live'    # Crypto hardware wallet manager
-cask 'mountain-duck'  # Mount remote storage locations
-cask 'protonmail-bridge' # Decrypt ProtonMail emails
-cask 'protonvpn'      # Client app for ProtonVPN
-cask 'vorta'          # GUI for BorgBackup
+# cask 'tresorit'       # Encrypted file backup (proprietary)
+# cask 'standard-notes' # Encrypted synced notes
+# cask 'signal'         # Link to encrypted mobile messenger
+# cask 'ledger-live'    # Crypto hardware wallet manager
+# cask 'mountain-duck'  # Mount remote storage locations
+# cask 'protonmail-bridge' # Decrypt ProtonMail emails
+# cask 'protonvpn'      # Client app for ProtonVPN
+# cask 'vorta'          # GUI for BorgBackup
 
 # Browsers
-cask 'firefox'
-cask 'chromium'
-cask 'orion'
+# cask 'firefox'
+# cask 'chromium'
+# cask 'orion'
 
 #############################################################
 # MacOS-Specific Stuff                                      #
@@ -198,6 +206,9 @@ cask 'font-fira-code'
 cask 'font-hack'
 cask 'font-inconsolata'
 cask 'font-meslo-lg-nerd-font'
+cask 'font-0xproto-nerd-font'           # https://www.nerdfonts.com/font-downloads
+cask 'font-bigblue-terminal-nerd-font'  # https://www.nerdfonts.com/font-downloads
+cask 'font-inconsolata-nerd-font'       # https://www.nerdfonts.com/font-downloads
 
 # Mac OS Quick-Look Plugins
 cask 'qlcolorcode'    # QL for code with highlighting

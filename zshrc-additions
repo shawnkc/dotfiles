@@ -91,3 +91,7 @@ ob() {
     fi
     open-in-obsidian.sh "$1"
 }
+
+freespace() {
+  df -h / | awk 'NR==2 {print "Free:", $4, "of", $2, "(" $5 " used)"}'
+}
